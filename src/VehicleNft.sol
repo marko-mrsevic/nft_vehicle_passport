@@ -13,7 +13,7 @@ contract VehicleNft is ERC721 {
         s_tokenCounter = 0;
     }
 
-    function mintVehicleNFT(string memory tokenUri) external {
+    function mintVehicleNft(string memory tokenUri) external {
         s_tokenIdToUri[s_tokenCounter] = tokenUri;
         _safeMint(msg.sender, s_tokenCounter);
         s_tokenCounter++;
