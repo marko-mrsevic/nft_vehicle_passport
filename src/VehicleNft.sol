@@ -26,7 +26,6 @@ pragma solidity 0.8.29;
 import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import {ERC721URIStorage} from "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
-
 /**
  * @title NFT-based vehicle passport
  * @author Marko Mrsevic
@@ -35,7 +34,6 @@ import {ERC721URIStorage} from "@openzeppelin/contracts/token/ERC721/extensions/
  * @notice The contract allows for minting, transferring, and updating vehicle information.
  * @dev This contract uses OpenZeppelin's ERC721 implementation.
  */
-
 contract VehicleNft is ERC721 {
     //////////////////////
     //      Erorrs      //
@@ -59,9 +57,9 @@ contract VehicleNft is ERC721 {
     //////////////////////
     //      Events      //
     //////////////////////
-    event VehicleMinted(address indexed to, uint tokenId, string vin, string uri);
-    event TokenURIUpdated(uint indexed tokenId, string newURI);
-    event OwnershipTransferred(uint indexed tokenId, address from, address to);
+    event VehicleMinted(address indexed to, uint256 tokenId, string vin, string uri);
+    event TokenURIUpdated(uint256 indexed tokenId, string newURI);
+    event OwnershipTransferred(uint256 indexed tokenId, address from, address to);
 
     /////////////////////////
     //      Functions      //
@@ -70,7 +68,9 @@ contract VehicleNft is ERC721 {
         s_tokenCounter = 0;
     }
 
-    function mintVehicleNft(string memory vin, string memory make, string memory model, string memory tokenUri) external {
+    function mintVehicleNft(string memory vin, string memory make, string memory model, string memory tokenUri)
+        external
+    {
         s_tokenIdToUri[s_tokenCounter] = tokenUri;
         _safeMint(msg.sender, s_tokenCounter);
         s_tokenIdToVehicle[s_tokenCounter] = Vehicle(vin, make, model);

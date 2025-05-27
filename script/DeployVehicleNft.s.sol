@@ -8,12 +8,11 @@ import {console} from "forge-std/console.sol";
 
 contract DeployVehicleNft is Script {
     VehicleNft public vehicleNft;
-    
-    function run() external returns (VehicleNft){
+
+    function run() external returns (VehicleNft) {
         vm.startBroadcast();
         vehicleNft = new VehicleNft();
         vm.stopBroadcast();
         return vehicleNft;
     }
-
 }

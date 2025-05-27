@@ -3,7 +3,7 @@
 pragma solidity 0.8.29;
 
 import {Test} from "forge-std/Test.sol";
-import {VehicleNft} from "../src/VehicleNft.sol";
+import {VehicleNft} from "../../src/VehicleNft.sol";
 
 contract VehicleNftTest is Test {
     VehicleNft public vehicleNft;
@@ -12,7 +12,7 @@ contract VehicleNftTest is Test {
     string public constant MAKE = "Ford";
     string public constant MODEL = "Mustang";
     // IPFS URI for the vehicle NFT metadata
-    string public constant TOKEN_URI  = "ipfs://QmTg5buUQe8w1ugAPbWmwFFshJgxY6kR1HN8p1cZeXRDNH";
+    string public constant TOKEN_URI = "ipfs://QmTg5buUQe8w1ugAPbWmwFFshJgxY6kR1HN8p1cZeXRDNH";
 
     function setUp() public {
         vehicleNft = new VehicleNft();

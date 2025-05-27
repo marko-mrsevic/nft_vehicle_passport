@@ -31,4 +31,4 @@ deploy:
 # Deploy contracts to Sepolia testnet
 .PHONY: deploy-sepolia
 deploy-sepolia:
-	forge script script/DeployVehicleNft.s.sol:DeployVehicleNft --rpc-url $(SEPOLIA_RPC_URL) --private-key $(PRIVATE_KEY) --broadcast
+	forge script script/DeployVehicleNft.s.sol:DeployVehicleNft --rpc-url $(SEPOLIA_RPC_URL) --account $(ACCOUNT_NAME) --sender $(SENDER_ADDRESS) --broadcast
