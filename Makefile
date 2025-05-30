@@ -1,5 +1,5 @@
 # Makefile for testing and deploying smart contracts
-
+-include .env
 # Load environment variables from .env file
 ifneq (,$(wildcard .env))
 	include .env
@@ -22,6 +22,10 @@ help:
 .PHONY: test
 test:
 	forge test
+
+.PHONY: forked-test
+forked-test:
+	forge test --fork-url $(SEPOLIA_RPC_URL) --sender $(SENDER_ADDRESS)
 
 # Deploy contracts to Anvil
 .PHONY: deploy

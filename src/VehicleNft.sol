@@ -34,6 +34,7 @@ import {ERC721URIStorage} from "@openzeppelin/contracts/token/ERC721/extensions/
  * @notice The contract allows for minting, transferring, and updating vehicle information.
  * @dev This contract uses OpenZeppelin's ERC721 implementation.
  */
+
 contract VehicleNft is ERC721 {
     //////////////////////
     //      Erorrs      //
@@ -68,6 +69,9 @@ contract VehicleNft is ERC721 {
         s_tokenCounter = 0;
     }
 
+    ///////////////////////////////////////////
+    //      Public & External Functions      //
+    ///////////////////////////////////////////
     function mintVehicleNft(string memory vin, string memory make, string memory model, string memory tokenUri)
         external
     {
@@ -94,10 +98,16 @@ contract VehicleNft is ERC721 {
         emit OwnershipTransferred(tokenId, msg.sender, newOwner);
     }
 
+    /////////////////////////////////////////////////
+    //      Private & Internal View Functions      //
+    /////////////////////////////////////////////////
     function _isApprovedOrOwner(address spender, uint256 tokenId) internal view returns (bool) {
         return (spender == ownerOf(tokenId) || isApprovedForAll(ownerOf(tokenId), spender));
     }
 
+    ////////////////////////////////////////////////
+    //      Public & External View Functions      //
+    ////////////////////////////////////////////////
     function getTokenUri(uint256 tokenId) external view returns (string memory) {
         return s_tokenIdToUri[tokenId];
     }

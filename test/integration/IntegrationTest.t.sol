@@ -6,6 +6,7 @@ import {Test} from "forge-std/Test.sol";
 import {VehicleNft} from "../../src/VehicleNft.sol";
 import {DeployVehicleNft} from "../../script/DeployVehicleNft.s.sol";
 import {MintVehicleNft} from "../../script/Interactions.s.sol";
+import {MintVehicleNft} from "../../script/Interactions.s.sol";
 
 contract IntegrationTest is Test {
     VehicleNft public vehicleNft;
@@ -23,4 +24,5 @@ contract IntegrationTest is Test {
         assertEq(vehicleNft.s_tokenCounter(), 1);
         assertEq(vehicleNft.getTokenUri(0), "ipfs://QmTg5buUQe8w1ugAPbWmwFFshJgxY6kR1HN8p1cZeXRDNH");
     }
+
 }

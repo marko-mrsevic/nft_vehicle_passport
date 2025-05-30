@@ -40,4 +40,11 @@ contract VehicleNftTest is Test {
         vehicleNft.transferOwnership(0, address(this));
         assertEq(vehicleNft.ownerOf(0), address(this));
     }
+
+    function testRevertIfNotOwnerNorApproved() public {
+        vm.prank(USER);
+        vehicleNft.mintVehicleNft(VIN, MAKE, MODEL, TOKEN_URI);
+        vm.expectRevert(VehicleNft.VehicleNft__NotOwnerNorApproved.selector);
+        vehicleNft.updateTokenURI(0, "newUri");
+    }
 }
